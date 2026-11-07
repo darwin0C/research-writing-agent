@@ -1,0 +1,5 @@
+Response: The wall temperature, the three contact angles and the corresponding onset times are already reported together in the first results paragraph, so readers can compare the cases directly: 350 ps at 110°, 210 ps at 70° and 125 ps at 35°, all at a wall temperature of 300 K. This was also the case in the original submission; the revision rewrote this paragraph for clarity and now opens the onset-time sentence with the wall temperature, but it adds no new information on this point. We did not add a separate table, because only three cases at a single wall temperature are compared. If the reviewer would prefer a table, the authors will need to decide whether to add one.
+Change: none — temperature, contact angles and onset times were already stated together in P1; the paragraph was only reworded.
+Location: Results and discussion
+Quote: At a wall temperature of 300 K, the onset time of nucleation decreased from 350 ps on the 110$^\circ$ surface to 125 ps on the 35$^\circ$ surface.
+Quote: The 70$^\circ$ surface gave an intermediate onset time of 210 ps.

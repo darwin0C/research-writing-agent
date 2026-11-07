@@ -1,0 +1,27 @@
+# NSF-style research proposal (Project Description). Verify against the current PAPPG
+# and the program solicitation.
+key = "nsf"
+name = "NSF research proposal"
+kind = "grant"
+language = "en"
+spelling = "US"
+first_person = true
+figure_ref = "Fig."
+
+tense = """
+Preliminary results: past tense for what was done and found. Aims and research plan: future
+("we will"), but never present planned outcomes as achieved results.
+"""
+
+style = """
+State the knowledge gap and the specific question before the significance.
+Intellectual Merit and Broader Impacts each need concrete, checkable statements.
+Preliminary results support feasibility: claim no more than the data show (indicate/suggest,
+with the tested conditions). Every aim needs a measurable outcome and an alternative approach.
+"""
+
+# Vision language ("transformative", "long-term goal", "pioneer") is expected in proposals when
+# the text shows its feasibility basis (Academic Humanizer, Layer 6) — so it is not listed here.
+# Only empty hype is flagged.
+extra_phrases = ["paradigm shift", "game-changing", "groundbreaking", "revolutionize", "revolutionary",
+                 "first-of-its-kind", "holistic"]

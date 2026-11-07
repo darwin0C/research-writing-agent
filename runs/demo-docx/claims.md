@@ -1,0 +1,16 @@
+# Claims · demo-docx
+
+| Unit | Sentence (≤12 words) | Evidence | Strength orig → new | Verdict |
+|---|---|---|---|---|
+| u02 | "Wall wettability influences both the onset of nucleation … bubble growth" | ⟦CITE1⟧ = [1,2]; not shown in this section (bubble growth is never reported) | "plays a pivotal role in determining" (strong assertion) → "influences" (plain assertion, weaker); scope kept | ok |
+| u03 | "The hydrophilic surface accelerated nucleation" | Fig. 1; onset 350 ps → 125 ps at 300 K, 2 MW/m² | "clearly demonstrate … significantly accelerates" → "show"-level observation (weaker); conditions kept; 350/125 ps still onset times, same conditions | author — as in the original, the text never says which θ gives 350 ps and which 125 ps, and "the hydrophilic surface" is ambiguous (both 35° and 70° are hydrophilic) |
+| u03 | "This result suggests that the onset time varies monotonically …" | Only two onset times for three contact angles; no 70° value | "proves" → "suggests" (weaker) | author — two endpoint values cannot support monotonicity over three angles; author should give the 70° onset time |
+| u05 | "The decrease in onset time … is consistent with classical nucleation theory" | ⟦CITE1⟧ = [3]; energy barrier not computed | "can be interpreted using CNT, where the barrier decreases due to …" → "is consistent with CNT … is expected to lower" (comparable relation to theory, mechanism hedged; not stronger) | author — already in the original: in textbook CNT for heterogeneous vapour-bubble nucleation the barrier factor f(θ) falls as θ increases (hydrophobic walls favour nucleation), so "lower barrier on the more wetting wall" is not the standard CNT expectation; the author must confirm that [3] supports this direction |
+| u05 | "Under the simulated conditions, a smaller contact angle corresponded to an earlier onset" | Same two onset times as u03; no 70° value | Original made no such statement ("sheds light on the interplay") → unhedged general relation across contact angles | reopen — new claim, and stronger than u03, which only "suggests" the monotonic trend; the revision states it as an observed relation over all angles |
+| u05 | "… may be relevant to the design of hydrophilic surfaces … nucleate boiling" | None in section: simulations report nucleation onset time (ps) at a fixed 2 MW/m², not onset of nucleate boiling (a wall-superheat/heat-flux threshold) | "paves the way for better cooling surfaces" (unhedged, vague) → "may be relevant … earlier onset of nucleate boiling" (hedged, but a new, specific application) | reopen — new application not in the original: equates the simulated nucleation onset time with onset of nucleate boiling (a different quantity) and adds the design goal "earlier ONB" |
+
+## Reopen
+- u05: Do not state a general contact-angle relation the data cannot carry — replace "a smaller contact angle corresponded to an earlier onset of nucleation" with a statement limited to what was reported (e.g. "the more hydrophilic surface showed an earlier onset of nucleation"), or hedge it to match u03 ("suggests").
+- u05: Remove the new application "for an earlier onset of nucleate boiling" — the simulations measure nucleation onset time, not ONB; keep only a hedged form of the original scope, e.g. "which may be relevant to the design of cooling surfaces".
+
+claims: 1 ok, 2 reopen, 3 author

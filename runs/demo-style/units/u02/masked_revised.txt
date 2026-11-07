@@ -1,0 +1,1 @@
+Wall wettability affects both the nucleation onset and the subsequent bubble growth ⟦CITE1⟧. This section examines the effect of wettability on the nucleation process using our molecular dynamics simulations.

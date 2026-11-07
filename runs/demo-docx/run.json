@@ -1,0 +1,165 @@
+{
+  "name": "demo-docx",
+  "source": "examples/section.docx",
+  "journal": "International Journal of Heat and Mass Transfer",
+  "level": "medium",
+  "style": "ijhmt",
+  "bib": null,
+  "glossary": "default",
+  "style_corpus": null,
+  "section_type": "results",
+  "max_style_attempts": 2,
+  "format": "docx",
+  "created": "2026-11-07 17:47:11",
+  "max_attempts": 3,
+  "units": [
+    {
+      "id": "u01",
+      "kind": "frozen",
+      "words": 3,
+      "sep": "\n\n",
+      "attempts": 0,
+      "last_hash": null,
+      "last_passed": null,
+      "reverted": false,
+      "gates": [],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": [],
+      "docx_index": 0
+    },
+    {
+      "id": "u02",
+      "kind": "prose",
+      "words": 39,
+      "sep": "\n\n",
+      "attempts": 1,
+      "last_hash": "b6da5ec2f9f8e779",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "b6da5ec2f9f8e779",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:48:32"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": [],
+      "docx_index": 1
+    },
+    {
+      "id": "u03",
+      "kind": "prose",
+      "words": 52,
+      "sep": "\n\n",
+      "attempts": 1,
+      "last_hash": "45f142806589da55",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "45f142806589da55",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:48:35"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": [],
+      "docx_index": 2
+    },
+    {
+      "id": "u04",
+      "kind": "frozen",
+      "words": 0,
+      "sep": "\n\n",
+      "attempts": 0,
+      "last_hash": null,
+      "last_passed": null,
+      "reverted": false,
+      "gates": [],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": [],
+      "docx_index": 3
+    },
+    {
+      "id": "u05",
+      "kind": "prose",
+      "words": 43,
+      "sep": "",
+      "attempts": 2,
+      "last_hash": "1fbb1eacf49c7cf7",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "13296c8f1ed27eec",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:48:38"
+        },
+        {
+          "attempt": 2,
+          "hash": "1fbb1eacf49c7cf7",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:50:47"
+        }
+      ],
+      "reopened": 1,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": [],
+      "docx_index": 4
+    }
+  ],
+  "decisions": [
+    "2026-11-07 17:50:23 u05: reopened — Claim-checker: (1) 'a smaller contact angle corresponded to an earlier onset of nucleation' is a new, unhedged relation across all angles — limit it to what was reported (the more hydrophilic surface showed the earlier onset) or hedge it to match u03 ('suggests'). (2) Do not equate simulated nucleation onset time with the onset of nucleate boiling and do not add a new design goal — keep only a hedged form of the original scope, e.g. 'may be relevant to the design of cooling surfaces'."
+  ],
+  "final": {
+    "passed": true,
+    "partial": false,
+    "open_units": [],
+    "findings": [],
+    "time": "2026-11-07 17:51:06",
+    "audit_before": {
+      "words": 142,
+      "ai_phrases": 7,
+      "ai_phrases_per_1000_words": 49.3,
+      "strong_claims": 4
+    },
+    "audit_after": {
+      "words": 125,
+      "ai_phrases": 0,
+      "ai_phrases_per_1000_words": 0.0,
+      "strong_claims": 0
+    },
+    "docx": {
+      "paragraphs_changed": 3,
+      "tracked": "revised_tracked.docx",
+      "clean": "revised_clean.docx"
+    }
+  }
+}

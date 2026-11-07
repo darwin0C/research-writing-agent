@@ -1,0 +1,64 @@
+# Template-like phrasing common in AI-generated academic text.
+# One phrase per line (case-insensitive). Prefix with "re:" for a regex.
+# Add or remove entries as you learn what your field / journal tolerates.
+
+# --- openers
+in recent years
+in recent decades
+in today's world
+with the rapid development of
+has attracted (increasing|growing|considerable) attention
+re:\bha(s|ve) (attracted|garnered|gained) (increasing|growing|considerable|significant|widespread) (attention|interest)
+plays a (crucial|pivotal|vital|key) role
+re:\bplays? an? (crucial|pivotal|vital|key|critical|essential) role
+it is well known that
+it is widely (recognized|accepted) that
+
+# --- filler / signposting
+it is worth noting that
+it should be noted that
+it is important to note that
+notably,
+interestingly,
+importantly,
+in this regard
+in this context
+in conclusion,
+taken together,
+to sum up
+
+# --- inflated vocabulary
+delve into
+delves into
+shed light on
+sheds light on
+pave the way
+paves the way
+paving the way
+a deeper understanding
+valuable insights
+provides insights into
+re:\b(intricate|multifaceted|nuanced) (interplay|landscape|relationship)
+the landscape of
+a testament to
+underscore
+underscores
+holistic
+seamless
+seamlessly
+leverage
+leverages
+harness the power
+cutting-edge
+game-changer
+innovative study
+re:\b(remarkable|exceptional|outstanding) (ability|performance|potential)
+
+# --- empty evaluations
+re:\bthis (novel|innovative|comprehensive) (study|work|approach)
+offers a promising avenue
+opens new avenues
+holds great promise
+
+# --- punctuation tell (Academic Humanizer, Layer 1): em-dashes in English prose
+re:(?<=[A-Za-z0-9)\] ])(?:—|---)(?=[ A-Za-z(])

@@ -1,0 +1,11 @@
+Synthetic reviewer report for the demo section (written for testing; not a real review).
+
+Reviewer #1
+
+1. The authors use overstated language such as "clearly demonstrate" and "proves" for results obtained at only three contact angles and one wall temperature. Please temper these claims.
+
+2. The mechanism proposed in the last paragraph (a lower energy barrier on more hydrophilic surfaces) contradicts classical heterogeneous nucleation theory, which predicts a lower barrier on hydrophobic walls. Please justify or revise.
+
+Reviewer #2
+
+1. The wall temperature and the contact angles should be stated together with the onset times so that readers can compare cases.

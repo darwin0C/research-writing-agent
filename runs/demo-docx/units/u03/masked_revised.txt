@@ -1,0 +1,1 @@
+⟦REF1⟧ presents the vapor fraction near the wall for contact angles ⟦FMT1⟧ of 35°, 70° and 110°. The hydrophilic surface accelerated nucleation: at a wall temperature of 300 K and a heat flux of 2 MW/m⟦FMT2⟧, the onset time decreased from 350 ps to 125 ps. This result suggests that the onset time varies monotonically with the contact angle.

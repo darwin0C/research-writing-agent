@@ -1,0 +1,18 @@
+# local settings written by the review app (model profiles / node assignment, never keys)
+config/models.local.json
+
+# virtual environment and Python caches
+.venv/
+__pycache__/
+*.pyc
+
+# per-run working folders: keep only the demo runs used by tests, README and docs
+runs/*
+!runs/demo-*/
+runs/**/.lock
+runs/**/attempts/
+runs/.upload-*
+runs/.log-*
+
+# OS / editor noise
+.DS_Store

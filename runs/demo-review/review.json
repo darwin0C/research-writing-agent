@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "id": "R1.01",
+      "reviewer": "1",
+      "comment": "The authors use overstated language such as \"clearly demonstrate\" and \"proves\" for results obtained at only three contact angles and one wall temperature. Please temper these claims.",
+      "attempts": 1,
+      "last_hash": "40d050126f04f247",
+      "passed": true,
+      "findings": [],
+      "needs_author": false
+    },
+    {
+      "id": "R1.02",
+      "reviewer": "1",
+      "comment": "The mechanism proposed in the last paragraph (a lower energy barrier on more hydrophilic surfaces) contradicts classical heterogeneous nucleation theory, which predicts a lower barrier on hydrophobic walls. Please justify or revise.",
+      "attempts": 2,
+      "last_hash": "eba6e3ca0a83a32d",
+      "passed": true,
+      "findings": [],
+      "needs_author": false
+    },
+    {
+      "id": "R2.01",
+      "reviewer": "2",
+      "comment": "The wall temperature and the contact angles should be stated together with the onset times so that readers can compare cases.",
+      "attempts": 1,
+      "last_hash": "ccfd135764618421",
+      "passed": true,
+      "findings": [],
+      "needs_author": false
+    }
+  ],
+  "original": "examples/section.tex",
+  "revised": "runs/demo-style/revised.tex",
+  "lang": "en",
+  "created": "2026-11-07 17:47"
+}

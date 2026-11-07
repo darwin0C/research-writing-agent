@@ -1,0 +1,110 @@
+{
+  "name": "demo-grant",
+  "source": "examples/grant_nsfc.txt",
+  "journal": "国家自然科学基金申请书",
+  "level": "medium",
+  "style": "nsfc",
+  "bib": null,
+  "glossary": "default",
+  "style_corpus": null,
+  "section_type": "other",
+  "max_style_attempts": 2,
+  "format": "text",
+  "created": "2026-11-07 17:47:11",
+  "max_attempts": 3,
+  "units": [
+    {
+      "id": "u01",
+      "kind": "prose",
+      "words": 91,
+      "sep": "\n\n",
+      "attempts": 1,
+      "last_hash": "91a810f7f607253e",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "91a810f7f607253e",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:48:23"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": []
+    },
+    {
+      "id": "u02",
+      "kind": "prose",
+      "words": 98,
+      "sep": "",
+      "attempts": 2,
+      "last_hash": "6810968bcbf67b75",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "55c7d86ac82ca97b",
+          "passed": false,
+          "findings": [
+            {
+              "level": "error",
+              "layer": "L2-unit",
+              "message": "200: unit ['kg/(m2·s)'] → ['kg']"
+            },
+            {
+              "level": "warning",
+              "layer": "L2-binding",
+              "message": "numbers that shared a sentence are now split — check what each refers to: 200 kg/(m2·s), 35 kPa, 42 %, 9 kPa"
+            },
+            {
+              "level": "warning",
+              "layer": "L5-claim",
+              "message": "hedge removed (1×): '有望'"
+            }
+          ],
+          "time": "2026-11-07 17:48:26"
+        },
+        {
+          "attempt": 2,
+          "hash": "6810968bcbf67b75",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:48:30"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": []
+    }
+  ],
+  "decisions": [],
+  "final": {
+    "passed": true,
+    "partial": false,
+    "open_units": [],
+    "findings": [],
+    "time": "2026-11-07 17:49:05",
+    "audit_before": {
+      "words": 191,
+      "ai_phrases": 6,
+      "ai_phrases_per_1000_words": 31.4,
+      "strong_claims": 4
+    },
+    "audit_after": {
+      "words": 154,
+      "ai_phrases": 0,
+      "ai_phrases_per_1000_words": 0.0,
+      "strong_claims": 1
+    }
+  }
+}

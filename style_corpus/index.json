@@ -1,0 +1,821 @@
+{
+ "files": [
+  "paper_a_film_boiling.tex",
+  "paper_b_microchannel.tex",
+  "paper_c_nucleation.tex"
+ ],
+ "paragraphs": [
+  {
+   "id": "p0001",
+   "source": "paper_a_film_boiling.tex",
+   "section": "intro",
+   "text": "Thin liquid films evaporate quickly on heated walls. Their behaviour controls dryout in many compact heat exchangers. We still lack a clear picture of how wall wettability changes film rupture. In this work, we combine molecular dynamics with a simple film model to address this gap.",
+   "features": {
+    "words": 46,
+    "sentences": 4,
+    "sent_len": 11.5,
+    "long_share": 0.0,
+    "we_rate": 43.47826086956522,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 2.1739130434782608,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "thin liquid": 1,
+     "their behaviour": 1,
+     "we still": 1,
+     "in this": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0002",
+   "source": "paper_a_film_boiling.tex",
+   "section": "intro",
+   "text": "Earlier simulations focused on pool boiling . Here, we look at thin films instead. The film thickness sets the time available for vaporisation. We therefore expect wettability to matter more for thin films than for pools.",
+   "features": {
+    "words": 35,
+    "sentences": 4,
+    "sent_len": 8.75,
+    "long_share": 0.0,
+    "we_rate": 57.142857142857146,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 28.571428571428573,
+    "hedge_rate": 0.0,
+    "nominal_rate": 8.571428571428571,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "earlier simulations": 1,
+     "here we": 1,
+     "the film": 1,
+     "we therefore": 1
+    },
+    "spelling_us": 1,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0003",
+   "source": "paper_a_film_boiling.tex",
+   "section": "results",
+   "text": "Figure 2 shows the film thickness against time for three contact angles. The film on the hydrophilic wall thins slowly and ruptures last. On the hydrophobic wall, a dry patch appears early. We find that rupture time falls as the contact angle grows.",
+   "features": {
+    "words": 42,
+    "sentences": 4,
+    "sent_len": 10.5,
+    "long_share": 0.0,
+    "we_rate": 23.80952380952381,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 23.80952380952381,
+    "nominal_rate": 0.0,
+    "fig_full": 1,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "figure shows": 1,
+     "the film": 1,
+     "on the": 1,
+     "we find": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0004",
+   "source": "paper_a_film_boiling.tex",
+   "section": "results",
+   "text": "We next look at the temperature field near the contact line. Figure 3 shows a hot spot under the thinnest part of the film. The hot spot is stronger on the hydrophobic wall. This agrees with the faster rupture seen in Figure 2.",
+   "features": {
+    "words": 41,
+    "sentences": 4,
+    "sent_len": 10.25,
+    "long_share": 0.0,
+    "we_rate": 24.390243902439025,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 2,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we next": 1,
+     "figure shows": 1,
+     "the hot": 1,
+     "this agrees": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0005",
+   "source": "paper_a_film_boiling.tex",
+   "section": "results",
+   "text": "The interfacial thermal resistance also changes with wettability. We measure it from the temperature jump at the wall. It is lower on the hydrophilic wall. Heat therefore crosses the interface more easily there, and the film stays stable for longer.",
+   "features": {
+    "words": 40,
+    "sentences": 4,
+    "sent_len": 10,
+    "long_share": 0.0,
+    "we_rate": 25.0,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 25.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 5.0,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "the interfacial": 1,
+     "we measure": 1,
+     "it is": 1,
+     "heat therefore": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0006",
+   "source": "paper_a_film_boiling.tex",
+   "section": "results",
+   "text": "We now compare our results with the film model. The model captures the trend but underestimates the rupture time. The gap is largest for the most hydrophilic wall. We think the model misses the adsorbed layer that forms on this wall.",
+   "features": {
+    "words": 41,
+    "sentences": 4,
+    "sent_len": 10.25,
+    "long_share": 0.0,
+    "we_rate": 73.17073170731707,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we now": 1,
+     "the model": 1,
+     "the gap": 1,
+     "we think": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0007",
+   "source": "paper_a_film_boiling.tex",
+   "section": "conclusion",
+   "text": "In this work, we studied thin-film evaporation on walls of different wettability. Rupture comes later on hydrophilic walls. The interfacial resistance is lower there, and heat crosses the wall more easily. These results may help in the design of wick structures.\n document",
+   "features": {
+    "words": 42,
+    "sentences": 4,
+    "sent_len": 10.5,
+    "long_share": 0.0,
+    "we_rate": 23.80952380952381,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 23.80952380952381,
+    "nominal_rate": 9.523809523809524,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "in this": 1,
+     "rupture comes": 1,
+     "the interfacial": 1,
+     "these results": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0008",
+   "source": "paper_b_microchannel.tex",
+   "section": "intro",
+   "text": "Flow boiling in microchannels removes large heat loads from small areas. However, flow instabilities limit its use. Pressure oscillations can trigger early dryout. In this work, we test whether inlet restrictors damp these oscillations.",
+   "features": {
+    "words": 34,
+    "sentences": 4,
+    "sent_len": 8.5,
+    "long_share": 0.0,
+    "we_rate": 29.41176470588235,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 29.41176470588235,
+    "hedge_rate": 0.0,
+    "nominal_rate": 8.823529411764707,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "flow boiling": 1,
+     "however flow": 1,
+     "pressure oscillations": 1,
+     "in this": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0009",
+   "source": "paper_b_microchannel.tex",
+   "section": "methods",
+   "text": "We built a test section with ten parallel channels. Each channel is 0.5 mm wide and 1 mm deep. We heat the base with a thin-film heater and record wall temperatures with eight thermocouples. We use deionised water at atmospheric pressure.",
+   "features": {
+    "words": 39,
+    "sentences": 4,
+    "sent_len": 9.75,
+    "long_share": 0.0,
+    "we_rate": 76.92307692307692,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 2.5641025641025643,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we built": 1,
+     "each channel": 1,
+     "we heat": 1,
+     "we use": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0010",
+   "source": "paper_b_microchannel.tex",
+   "section": "results",
+   "text": "Figure 4 shows the pressure drop signal with and without restrictors. Without restrictors, the signal oscillates strongly. With restrictors, the amplitude drops sharply. We see the same trend at all heat fluxes we tested.",
+   "features": {
+    "words": 33,
+    "sentences": 4,
+    "sent_len": 8.25,
+    "long_share": 0.0,
+    "we_rate": 60.60606060606061,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 1,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "figure shows": 1,
+     "without restrictors": 1,
+     "with restrictors": 1,
+     "we see": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0011",
+   "source": "paper_b_microchannel.tex",
+   "section": "results",
+   "text": "Next, we examine the heat transfer coefficient. Figure 5 shows it against vapour quality. The coefficient rises at low quality and then falls. Restrictors shift the peak to higher quality. We think this is because the flow distributes more evenly between channels.",
+   "features": {
+    "words": 41,
+    "sentences": 5,
+    "sent_len": 8.2,
+    "long_share": 0.0,
+    "we_rate": 48.78048780487805,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 7.317073170731708,
+    "fig_full": 1,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "next we": 1,
+     "figure shows": 1,
+     "the coefficient": 1,
+     "restrictors shift": 1,
+     "we think": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0012",
+   "source": "paper_b_microchannel.tex",
+   "section": "results",
+   "text": "We also recorded high-speed videos. They show reversed flow without restrictors. Vapour slugs move back into the inlet plenum. With restrictors, we rarely see reversed flow. The videos therefore support the pressure data.",
+   "features": {
+    "words": 33,
+    "sentences": 5,
+    "sent_len": 6.6,
+    "long_share": 0.0,
+    "we_rate": 60.60606060606061,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 30.303030303030305,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we also": 1,
+     "they show": 1,
+     "vapour slugs": 1,
+     "with restrictors": 1,
+     "the videos": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0013",
+   "source": "paper_b_microchannel.tex",
+   "section": "results",
+   "text": "We now discuss the cost of this approach. Restrictors raise the total pressure drop. The pump must work harder. However, the gain in stability outweighs this cost for the conditions we tested.",
+   "features": {
+    "words": 32,
+    "sentences": 4,
+    "sent_len": 8,
+    "long_share": 0.0,
+    "we_rate": 62.5,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 31.25,
+    "hedge_rate": 0.0,
+    "nominal_rate": 6.25,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we now": 1,
+     "restrictors raise": 1,
+     "the pump": 1,
+     "however the": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0014",
+   "source": "paper_b_microchannel.tex",
+   "section": "conclusion",
+   "text": "In this work, we showed that inlet restrictors damp flow oscillations in parallel microchannels. They delay dryout and shift the peak heat transfer coefficient. The extra pressure drop is modest for the conditions we tested.\n document",
+   "features": {
+    "words": 36,
+    "sentences": 3,
+    "sent_len": 12,
+    "long_share": 0.0,
+    "we_rate": 55.55555555555556,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 8.333333333333334,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "in this": 1,
+     "they delay": 1,
+     "the extra": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0015",
+   "source": "paper_c_nucleation.tex",
+   "section": "intro",
+   "text": "Bubble nucleation starts boiling. It happens at the nanoscale, so experiments struggle to resolve it. Molecular dynamics fills this gap. In this work, we use it to study how surface patterns affect nucleation on a heated wall.",
+   "features": {
+    "words": 37,
+    "sentences": 4,
+    "sent_len": 9.25,
+    "long_share": 0.0,
+    "we_rate": 27.027027027027028,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 8.108108108108109,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "bubble nucleation": 1,
+     "it happens": 1,
+     "molecular dynamics": 1,
+     "in this": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0016",
+   "source": "paper_c_nucleation.tex",
+   "section": "methods",
+   "text": "We model argon on a platinum wall. The wall carries a periodic pattern of hydrophilic and hydrophobic stripes. We vary the stripe width from 2 nm to 8 nm. We heat the wall suddenly and track the vapour phase with a local density criterion.",
+   "features": {
+    "words": 42,
+    "sentences": 4,
+    "sent_len": 10.5,
+    "long_share": 0.0,
+    "we_rate": 71.42857142857143,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 2.380952380952381,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we model": 1,
+     "the wall": 1,
+     "we vary": 1,
+     "we heat": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0017",
+   "source": "paper_c_nucleation.tex",
+   "section": "results",
+   "text": "Figure 2 shows snapshots of the liquid near the wall. Vapour first appears above the hydrophobic stripes. It then spreads sideways until it meets the hydrophilic stripes. We find that the hydrophilic stripes pin the bubble edge.",
+   "features": {
+    "words": 36,
+    "sentences": 4,
+    "sent_len": 9,
+    "long_share": 0.0,
+    "we_rate": 27.77777777777778,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 27.77777777777778,
+    "nominal_rate": 0.0,
+    "fig_full": 1,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "figure shows": 1,
+     "vapour first": 1,
+     "it then": 1,
+     "we find": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0018",
+   "source": "paper_c_nucleation.tex",
+   "section": "results",
+   "text": "We now look at the onset time. Figure 3 shows it against stripe width. Narrow stripes give a short onset time. Wide stripes behave almost like a uniform hydrophobic wall. The trend is clear, but the scatter between runs is large.",
+   "features": {
+    "words": 40,
+    "sentences": 5,
+    "sent_len": 8,
+    "long_share": 0.0,
+    "we_rate": 25.0,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 1,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we now": 1,
+     "figure shows": 1,
+     "narrow stripes": 1,
+     "wide stripes": 1,
+     "the trend": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0019",
+   "source": "paper_c_nucleation.tex",
+   "section": "results",
+   "text": "The energy barrier explains part of this trend. On hydrophobic patches the barrier is lower, so vapour forms first there. The hydrophilic stripes then hold the bubble in place. We think this pinning keeps the bubble small and stable.",
+   "features": {
+    "words": 39,
+    "sentences": 4,
+    "sent_len": 9.75,
+    "long_share": 0.0,
+    "we_rate": 25.641025641025642,
+    "passive_share": 0.0,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "the energy": 1,
+     "on hydrophobic": 1,
+     "the hydrophilic": 1,
+     "we think": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  },
+  {
+   "id": "p0020",
+   "source": "paper_c_nucleation.tex",
+   "section": "results",
+   "text": "We also checked the effect of wall temperature. Higher temperatures shorten the onset time on all patterns. However, the ranking of patterns stays the same. Pattern width therefore matters across the range we studied.",
+   "features": {
+    "words": 34,
+    "sentences": 4,
+    "sent_len": 8.5,
+    "long_share": 0.0,
+    "we_rate": 58.8235294117647,
+    "passive_share": 0.0,
+    "past_share": null,
+    "connective_rate": 58.8235294117647,
+    "hedge_rate": 0.0,
+    "nominal_rate": 0.0,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {},
+    "openers": {
+     "we also": 1,
+     "higher temperatures": 1,
+     "however the": 1,
+     "pattern width": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 0
+   }
+  },
+  {
+   "id": "p0021",
+   "source": "paper_c_nucleation.tex",
+   "section": "conclusion",
+   "text": "In this work, we showed that striped walls control where bubbles form. Vapour appears on hydrophobic stripes and is pinned by hydrophilic ones. These results suggest a route to stable, well-placed nucleation sites.\n document",
+   "features": {
+    "words": 34,
+    "sentences": 3,
+    "sent_len": 11.333333333333334,
+    "long_share": 0.0,
+    "we_rate": 29.41176470588235,
+    "passive_share": 0.3333333333333333,
+    "past_share": 0.0,
+    "connective_rate": 0.0,
+    "hedge_rate": 58.8235294117647,
+    "nominal_rate": 5.882352941176471,
+    "fig_full": 0,
+    "fig_abbr": 0,
+    "study_phrase": {
+     "this work": 1
+    },
+    "openers": {
+     "in this": 1,
+     "vapour appears": 1,
+     "these results": 1
+    },
+    "spelling_us": 0,
+    "spelling_uk": 1
+   }
+  }
+ ],
+ "profile": {
+  "all": {
+   "n": 21,
+   "sent_len": {
+    "mean": 9.494444444444444,
+    "sd": 1.3300190289179892
+   },
+   "long_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "we_rate": {
+    "mean": 44.299706830228054,
+    "sd": 18.72607275230933
+   },
+   "passive_share": {
+    "mean": 0.015873015873015872,
+    "sd": 0.07098628499999332
+   },
+   "past_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "connective_rate": {
+    "mean": 9.683797761528854,
+    "sd": 16.463708242416303
+   },
+   "hedge_rate": {
+    "mean": 6.3914454670757195,
+    "sd": 14.651080441988954
+   },
+   "nominal_rate": {
+    "mean": 3.5680287166136013,
+    "sd": 3.6452124575540092
+   },
+   "fig_pref": "Figure",
+   "study_phrase": "this work",
+   "openers": [
+    "in this",
+    "figure shows",
+    "we now",
+    "we think",
+    "the film",
+    "we find",
+    "the interfacial",
+    "these results"
+   ],
+   "spelling": "UK"
+  },
+  "intro": {
+   "n": 4,
+   "sent_len": {
+    "mean": 9.5,
+    "sd": 1.1858541225631423
+   },
+   "long_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "we_rate": {
+    "mean": 39.264977436332934,
+    "sd": 12.085358615095416
+   },
+   "passive_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "connective_rate": {
+    "mean": 14.495798319327731,
+    "sd": 14.498842695780352
+   },
+   "hedge_rate": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "nominal_rate": {
+    "mean": 6.919244783694912,
+    "sd": 2.7517076762437562
+   },
+   "fig_pref": null,
+   "study_phrase": "this work",
+   "openers": [
+    "in this",
+    "thin liquid",
+    "their behaviour",
+    "we still",
+    "earlier simulations",
+    "here we",
+    "the film",
+    "we therefore"
+   ],
+   "spelling": "UK"
+  },
+  "conclusion": {
+   "n": 3,
+   "sent_len": {
+    "mean": 11.277777777777779,
+    "sd": 0.6136311676215145
+   },
+   "long_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "we_rate": {
+    "mean": 36.25894802365391,
+    "sd": 13.835114080854572
+   },
+   "passive_share": {
+    "mean": 0.1111111111111111,
+    "sd": 0.15713484026367722
+   },
+   "past_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "connective_rate": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "hedge_rate": {
+    "mean": 27.544351073762837,
+    "sd": 24.159381947592177
+   },
+   "nominal_rate": {
+    "mean": 7.913165266106443,
+    "sd": 1.5160161420288998
+   },
+   "fig_pref": null,
+   "study_phrase": "this work",
+   "openers": [
+    "in this",
+    "these results",
+    "rupture comes",
+    "the interfacial",
+    "they delay",
+    "the extra",
+    "vapour appears"
+   ],
+   "spelling": "UK"
+  },
+  "results": {
+   "n": 12,
+   "sent_len": {
+    "mean": 8.941666666666666,
+    "sd": 1.1586330547483772
+   },
+   "long_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "we_rate": {
+    "mean": 43.00878677223727,
+    "sd": 18.46147887338341
+   },
+   "passive_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "past_share": {
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "connective_rate": {
+    "mean": 12.11471330956625,
+    "sd": 18.75021869900753
+   },
+   "hedge_rate": {
+    "mean": 4.298941798941799,
+    "sd": 9.646793747232024
+   },
+   "nominal_rate": {
+    "mean": 1.5472560975609757,
+    "sd": 2.721427973946863
+   },
+   "fig_pref": "Figure",
+   "study_phrase": null,
+   "openers": [
+    "figure shows",
+    "we now",
+    "we think",
+    "we find",
+    "with restrictors",
+    "we also",
+    "however the",
+    "the film"
+   ],
+   "spelling": "UK"
+  }
+ },
+ "built": "2026-11-07 17:33"
+}

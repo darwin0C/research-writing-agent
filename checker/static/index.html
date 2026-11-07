@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文审阅</title>
+<style>
+:root {
+  --bg: #f6f5f2; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --ins: #dff3e4; --ins-ink: #1c5b2e; --del: #fbe3e1;
+  --del-ink: #8a2a20; --warn: #fff4d6; --warn-ink: #7a5600; --err: #fde2e0; --err-ink: #9b2116;
+  --ok: #e3f2e6; --ok-ink: #22612f; --chip: #eceaf6; --chip-ink: #3d3a78; --rej: #f0efeb;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615; --panel: #1f1f1d; --ink: #ecebe7; --muted: #a09e98; --line: #34332f;
+    --accent: #7fa8d6; --accent-ink: #10161d; --ins: #1d3b26; --ins-ink: #a8dfb6; --del: #45201c;
+    --del-ink: #f0b0a8; --warn: #3d3215; --warn-ink: #f2d58a; --err: #46201c; --err-ink: #f5b2aa;
+    --ok: #1e3824; --ok-ink: #a8dfb6; --chip: #2d2b45; --chip-ink: #c9c5f5; --rej: #2a2a27;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif; }
+header { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--panel);
+  border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+header h1 { font-size: 16px; margin: 0; font-weight: 650; }
+header .sp { flex: 1; }
+button { font: inherit; font-size: 13px; padding: 5px 11px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+.layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 49px); }
+nav { border-right: 1px solid var(--line); padding: 12px; overflow-y: auto; }
+nav .run { padding: 8px 10px; border-radius: 7px; cursor: pointer; margin-bottom: 4px; }
+nav .run:hover { background: var(--panel); }
+nav .run.active { background: var(--panel); outline: 1px solid var(--accent); }
+nav .run .n { font-weight: 600; font-size: 13px; word-break: break-all; }
+nav .run .m { color: var(--muted); font-size: 12px; }
+main { padding: 18px 26px 60px; max-width: 1100px; }
+.badge { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 10px;
+  background: var(--rej); color: var(--muted); margin-left: 4px; white-space: nowrap; }
+.badge.ok { background: var(--ok); color: var(--ok-ink); }
+.badge.bad { background: var(--err); color: var(--err-ink); }
+.badge.warn { background: var(--warn); color: var(--warn-ink); }
+.badge.info { background: var(--chip); color: var(--chip-ink); }
+.summary { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 14px 18px; margin-bottom: 16px; }
+.summary h2 { margin: 0 0 6px; font-size: 18px; word-break: break-all; }
+.kv { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 13px; }
+.kv b { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 14px; }
+.card .head { display: flex; align-items: center; gap: 6px; padding: 9px 14px; border-bottom: 1px solid var(--line);
+  flex-wrap: wrap; }
+.card .head .id { font-family: var(--mono); font-weight: 600; }
+.card .head .sp { flex: 1; }
+.card .body { padding: 12px 16px; }
+.frozen { color: var(--muted); font-size: 13px; padding: 8px 14px; white-space: pre-wrap;
+  font-family: var(--mono); max-height: 90px; overflow: hidden; }
+.text { white-space: pre-wrap; word-wrap: break-word; }
+ins.c, del.c { text-decoration: none; border-radius: 3px; padding: 0 1px; cursor: pointer; }
+ins.c { background: var(--ins); color: var(--ins-ink); }
+del.c { background: var(--del); color: var(--del-ink); text-decoration: line-through; }
+.chg { border-radius: 4px; }
+.chg.rejected ins.c { display: none; }
+.chg.rejected del.c { background: var(--rej); color: var(--ink); text-decoration: underline dotted var(--muted); }
+.chg:hover { outline: 1px dashed var(--accent); }
+.chip { display: inline-block; background: var(--chip); color: var(--chip-ink); border-radius: 4px;
+  font-size: 12px; padding: 0 5px; margin: 0 1px; font-family: var(--mono); vertical-align: 1px;
+  max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip.mark { padding: 0 2px; font-size: 10px; opacity: .55; }
+.chip.evidence { background: var(--warn); color: var(--warn-ink); font-family: inherit; white-space: normal; max-width: none; }
+.models table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.models td, .models th { padding: 5px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.models input[type=text], .models input[type=password], .models select { font: inherit; font-size: 13px; width: 100%;
+  padding: 3px 6px; border: 1px solid var(--line); border-radius: 5px; background: var(--bg); color: var(--ink); }
+.models h4 { margin: 16px 0 6px; }
+.modal .box.wide { width: min(900px, 96vw); max-height: 90vh; overflow: auto; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cols h4 { margin: 0 0 4px; font-size: 12px; color: var(--muted); font-weight: 600; }
+textarea { width: 100%; min-height: 150px; font: 14px/1.55 var(--mono); padding: 10px; border-radius: 7px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+.findings { margin: 8px 0 0; padding: 0; list-style: none; font-size: 13px; }
+.findings li { padding: 3px 8px; border-radius: 5px; margin-bottom: 3px; }
+.findings li.error { background: var(--err); color: var(--err-ink); }
+.findings li.warning { background: var(--warn); color: var(--warn-ink); }
+.findings li.ok { background: var(--ok); color: var(--ok-ink); }
+details { margin-top: 8px; font-size: 13px; }
+details summary { cursor: pointer; color: var(--muted); }
+details pre { white-space: pre-wrap; background: var(--bg); padding: 8px 10px; border-radius: 6px;
+  font: 12.5px/1.5 var(--mono); max-height: 320px; overflow: auto; }
+.hint { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; }
+.empty { color: var(--muted); padding: 40px 0; text-align: center; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: none; align-items: center;
+  justify-content: center; z-index: 20; }
+.modal.show { display: flex; }
+.modal .box { background: var(--panel); border-radius: 12px; padding: 20px 22px; width: min(520px, 92vw);
+  border: 1px solid var(--line); }
+.modal label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 3px; }
+.modal select, .modal input[type=file], .modal input[type=text] { width: 100%; font: inherit; font-size: 14px; }
+.log { font: 12.5px/1.5 var(--mono); background: var(--bg); padding: 8px; border-radius: 6px;
+  max-height: 260px; overflow: auto; white-space: pre-wrap; margin-top: 10px; }
+blockquote { margin: 6px 0; padding: 4px 10px; border-left: 3px solid var(--accent); color: var(--muted); }
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; } nav { border-right: 0; border-bottom: 1px solid var(--line); max-height: 180px; }
+  main { padding: 14px 16px 50px; } .cols { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>论文审阅</h1>
+  <span class="hint" id="tagline">逐段对照、逐条接受，所有决定都会按原文重新校验</span>
+  <span class="sp"></span>
+  <button id="modelsBtn">模型设置</button>
+  <button id="newBtn">新建运行</button>
+</header>
+<div class="layout">
+  <nav id="runs"></nav>
+  <main id="main"><div class="empty">从左侧选择一个运行</div></main>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <h3 style="margin:0 0 4px">新建运行（通过 Claude API）</h3>
+  <p class="hint">使用“模型设置”里配置的模型；规则包会附加到每个 Agent 的说明里。</p>
+  <label>类型</label>
+  <select id="nKind"><option value="paper">论文 / 基金申请书</option><option value="review">审稿回复</option></select>
+  <div id="paperFields">
+    <label>文件（.tex / .docx / .txt / .md）</label><input type="file" id="nFile" accept=".tex,.docx,.txt,.md">
+    <label>期刊 / 申请书格式</label>
+    <select id="nStyle"><option value="ijhmt">IJHMT</option><option value="ate">Applied Thermal Engineering</option>
+      <option value="nsfc">国家自然科学基金（中文）</option><option value="nsf">NSF</option><option value="">（无）</option></select>
+    <label>改写程度</label>
+    <select id="nLevel"><option value="light">light（只改措辞）</option><option value="medium">medium</option><option value="heavy">heavy</option></select>
+  </div>
+  <div id="reviewFields" style="display:none">
+    <label>审稿意见（.txt）</label><input type="file" id="nComments" accept=".txt,.md">
+    <label>原稿</label><input type="file" id="nOrig" accept=".tex,.docx,.txt,.md">
+    <label>修改稿</label><input type="file" id="nRev" accept=".tex,.docx,.txt,.md">
+    <label>回复语言</label><select id="nLang"><option value="en">English</option><option value="zh">中文</option></select>
+  </div>
+  <label>模型</label>
+  <select id="nProfile"><option value="">按“模型设置”中的节点分配</option></select>
+  <p class="hint" id="nPlan"></p>
+  <div class="actions"><button class="primary" id="nGo">开始</button><button id="nClose">关闭</button></div>
+  <div class="log" id="nLog" style="display:none"></div>
+</div></div>
+
+<div class="modal" id="mModal"><div class="box wide models">
+  <div style="display:flex;align-items:center;gap:8px"><h3 style="margin:0;flex:1">模型设置</h3><button id="mClose">关闭</button></div>
+  <p class="hint">每个 Agent 可以用不同的模型。Claude 走官方 SDK；DeepSeek、通义千问、Kimi、GLM、OpenAI、本地 Ollama 等走 OpenAI 兼容接口。
+    密钥只保存在本机 <code>~/.config/research-writing-agent/keys.json</code>（或用环境变量），不会写进项目，也不会显示出来。</p>
+  <div id="mBody"></div>
+</div></div>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const el = (tag, attrs = {}, ...kids) => {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else if (v !== undefined && v !== null) e.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k !== null && k !== undefined) e.append(k instanceof Node ? k : document.createTextNode(String(k)));
+  return e;
+};
+async function api(path, body) {
+  const r = await fetch(path, body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+const STATUS = {
+  passed: ["通过", "ok"], styled: ["已风格校准", "ok"], "style-kept-rewrite": ["通过（保留改写版）", "ok"],
+  reverted: ["已退回原文", "bad"], failed: ["未通过", "bad"], frozen: ["未处理", ""],
+  "needs-audit": ["待审核", "warn"], "needs-rewrite": ["待改写", "warn"], "needs-gate": ["待校验", "warn"],
+  "needs-style": ["待风格校准", "warn"], "needs-style-gate": ["待校验", "warn"], "style-failed": ["风格校准未通过", "warn"],
+};
+let current = null, view = null;
+
+// ---------- placeholders as chips
+function rich(text, labels) {
+  const frag = document.createDocumentFragment();
+  for (const part of text.split(/(⟦[A-Z]+\d+⟧|\[\[EVIDENCE:[^\]]*\]\])/)) {
+    if (part.startsWith("[[EVIDENCE:")) {
+      frag.append(el("span", { class: "chip evidence", title: "作者需补充的证据（定稿前必须处理）" }, "待补证据：" + part.slice(11, -2).trim()));
+      continue;
+    }
+    if (/^⟦[A-Z]+\d+⟧$/.test(part)) {
+      const kind = part.slice(1).replace(/\d+⟧$/, "");
+      if (kind === "BM" || kind === "MK") {  // invisible anchors: keep them visible but quiet
+        frag.append(el("span", { class: "chip mark", title: part + "  " + (kind === "BM" ? "书签（不可见）" : "批注锚点（不可见）") }, "•"));
+        continue;
+      }
+      const label = (labels && labels[part]) || kind.toLowerCase();
+      frag.append(el("span", { class: "chip", title: part + "  " + label }, label));
+    } else if (part) frag.append(part);
+  }
+  return frag;
+}
+function findingsList(fs, okText) {
+  const ul = el("ul", { class: "findings" });
+  if (!fs.length) ul.append(el("li", { class: "ok" }, okText || "全部检查通过"));
+  for (const f of fs) ul.append(el("li", { class: f.level }, `${f.level === "error" ? "错误" : "提醒"} · ${f.layer}：${f.message}`));
+  return ul;
+}
+
+// ---------- sidebar
+async function loadRuns(select) {
+  const runs = await api("/api/runs");
+  const nav = $("#runs"); nav.replaceChildren();
+  if (!runs.length) nav.append(el("div", { class: "hint" }, "runs/ 里还没有运行"));
+  for (const r of runs) {
+    let meta;
+    if (r.kind === "paper") meta = [`${r.format} · ${r.units} 段`, r.style ? ` · ${r.style}` : "",
+      r.gate === true ? " · 终审通过" : r.gate === false ? " · 终审未通过" : ""].join("");
+    else if (r.kind === "review") meta = `审稿回复 · ${r.verified}/${r.items} 已核实`;
+    else meta = r.running ? "运行中…" : "已结束（见日志）";
+    const d = el("div", { class: "run" + (r.name === current ? " active" : ""), onclick: () => open(r.name, r.kind) },
+      el("div", { class: "n" }, r.name), el("div", { class: "m" }, meta));
+    nav.append(d);
+  }
+  if (select) open(select);
+}
+
+async function open(name, kind) {
+  current = name;
+  document.querySelectorAll("nav .run").forEach(n => n.classList.toggle("active", n.querySelector(".n").textContent === name));
+  const main = $("#main");
+  if (kind === "job") return showJob(name);
+  main.replaceChildren(el("div", { class: "empty" }, "加载中…"));
+  try {
+    view = await api(`/api/run/${encodeURIComponent(name)}`);
+    view.kind === "review" ? renderReview(view) : renderPaper(view);
+  } catch (e) { main.replaceChildren(el("div", { class: "empty" }, "无法打开：" + e.message)); }
+}
+
+// ---------- paper run
+function downloads(v) {
+  const box = el("div", { class: "actions" });
+  for (const f of v.files) box.append(el("a", { href: `/api/run/${encodeURIComponent(v.name)}/file/${encodeURIComponent(f)}` }, f));
+  return box;
+}
+function renderPaper(v) {
+  const main = $("#main"); main.replaceChildren();
+  const f = v.final || {};
+  const ab = f.audit_before, aa = f.audit_after;
+  const sum = el("div", { class: "summary" },
+    el("h2", {}, v.name),
+    el("div", { class: "kv" },
+      el("span", {}, "格式 ", el("b", {}, v.format)),
+      el("span", {}, "期刊 ", el("b", {}, v.journal || "—")),
+      el("span", {}, "改写程度 ", el("b", {}, v.level)),
+      f.passed !== undefined ? el("span", {}, "整节终审 ", el("b", {}, f.passed ? "通过" : "未通过")) : null,
+      ab ? el("span", {}, "AI 套话 ", el("b", {}, `${ab.ai_phrases_per_1000_words} → ${aa.ai_phrases_per_1000_words}`), " /千词") : null,
+      f.style ? el("span", {}, "风格距离 ", el("b", {}, `${f.style.section_before} → ${f.style.section_after}`)) : null),
+    el("p", { class: "hint" }, "点击绿色/红色的改动可单独接受或拒绝；“保存”前会按原文重新跑全部校验，有错误的版本不会被保存。导出时，没有手动决定的段落使用流水线的结果。"));
+  const exportBtn = el("button", { class: "primary", onclick: async () => {
+    exportBtn.disabled = true;
+    try { const r = await api(`/api/run/${encodeURIComponent(v.name)}/export`, {});
+      exportOut.replaceChildren(findingsList(r.findings, `整节校验通过 · 已写出 ${r.files.join("、")}（采用了 ${r.decisions} 个手动决定）`));
+      if (r.evidence && r.evidence.length) exportOut.append(findingsList(r.evidence.map(e => ({ level: "warning", layer: "待补证据", message: e })), ""),
+        el("p", { class: "hint" }, `还有 ${r.evidence.length} 处 [[EVIDENCE]] 待补，处理前不要投稿。`));
+      view = await api(`/api/run/${encodeURIComponent(v.name)}`); dl.replaceWith(dl = downloads(view));
+    } catch (e) { exportOut.replaceChildren(findingsList([{ level: "error", layer: "export", message: e.message }])); }
+    exportBtn.disabled = false; } }, v.format === "docx" ? "导出 Word（修订模式 + 干净版）" : "导出终稿");
+  const exportOut = el("div");
+  let dl = downloads(v);
+  sum.append(el("div", { class: "actions" }, exportBtn), exportOut, dl);
+  if (v.claims) sum.append(el("details", {}, el("summary", {}, "论断检查（claims.md）"), el("pre", {}, v.claims)));
+  main.append(sum);
+  for (const u of v.units) main.append(u.kind === "prose" ? unitCard(v, u) : frozenCard(u));
+}
+function frozenCard(u) {
+  return el("div", { class: "card" }, el("div", { class: "head" }, el("span", { class: "id" }, u.id), el("span", { class: "badge" }, "未处理（标题/图表/公式）")),
+    el("div", { class: "frozen" }, rich(u.text, {})));
+}
+function compose(u, rejected) {
+  return u.segments.map(s => s.op === "equal" ? s.text : (rejected.has(s.id) ? s.old : s.new)).join("");
+}
+function unitCard(v, u) {
+  const [label, cls] = STATUS[u.status] || [u.status, ""];
+  const rejected = new Set();
+  let mode = u.decision ? "decision" : "diff";
+  const result = el("div");
+  const body = el("div", { class: "body" });
+  const changes = u.segments.filter(s => s.op === "change").length;
+  const head = el("div", { class: "head" },
+    el("span", { class: "id" }, u.id), el("span", { class: "badge " + cls }, label),
+    el("span", { class: "badge" }, { styled: "风格校准版", rewrite: "改写版", original: "原文" }[u.source]),
+    el("span", { class: "badge" }, `${changes} 处改动`),
+    u.decision ? el("span", { class: "badge info" }, "已保存你的版本") : null,
+    el("span", { class: "sp" }));
+  const btn = (t, fn, p) => el("button", { class: p ? "primary" : "", onclick: fn }, t);
+  const ta = el("textarea", {});
+  let timer = null;
+  ta.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => check(ta.value), 400); });
+
+  async function check(text) {
+    try { const r = await api(`/api/run/${encodeURIComponent(v.name)}/check`, { uid: u.id, text });
+      result.replaceChildren(findingsList(r.findings, "全部检查通过，可以保存")); return r;
+    } catch (e) { result.replaceChildren(findingsList([{ level: "error", layer: "app", message: e.message }])); }
+  }
+  async function save(text) {
+    const r = await api(`/api/run/${encodeURIComponent(v.name)}/decide`, { uid: u.id, text });
+    if (!r.passed) { result.replaceChildren(findingsList(r.findings)); return; }
+    await open(v.name);
+  }
+  function draw() {
+    body.replaceChildren();
+    if (mode === "decision") {
+      body.append(el("div", { class: "text" }, rich(u.decision.masked, u.labels)),
+        el("div", { class: "actions" }, btn("改回流水线版本", async () => { await api(`/api/run/${encodeURIComponent(v.name)}/decide`, { uid: u.id, text: null }); open(v.name); }),
+          btn("再编辑", () => { ta.value = u.decision.masked; mode = "edit"; draw(); check(ta.value); })));
+    } else if (mode === "diff") {
+      const t = el("div", { class: "text" });
+      for (const s of u.segments) {
+        if (s.op === "equal") { t.append(rich(s.text, u.labels)); continue; }
+        const span = el("span", { class: "chg" + (rejected.has(s.id) ? " rejected" : ""), title: rejected.has(s.id) ? "已拒绝（点击恢复接受）" : "已接受（点击拒绝）",
+          onclick: () => { rejected.has(s.id) ? rejected.delete(s.id) : rejected.add(s.id); draw(); check(compose(u, rejected)); } });
+        if (s.old) span.append(el("del", { class: "c" }, rich(s.old, u.labels)));
+        if (s.new) span.append(el("ins", { class: "c" }, rich(s.new, u.labels)));
+        t.append(span);
+      }
+      body.append(t, el("div", { class: "actions" },
+        btn("全部接受", () => { rejected.clear(); draw(); check(compose(u, rejected)); }),
+        btn("全部拒绝", () => { u.segments.forEach(s => s.op === "change" && rejected.add(s.id)); draw(); check(compose(u, rejected)); }),
+        btn("手动编辑", () => { ta.value = compose(u, rejected); mode = "edit"; draw(); check(ta.value); }),
+        btn("并排对照", () => { mode = "side"; draw(); }),
+        btn("保存这个版本", () => save(compose(u, rejected)), true)));
+    } else if (mode === "side") {
+      body.append(el("div", { class: "cols" },
+        el("div", {}, el("h4", {}, "原文"), el("div", { class: "text" }, rich(u.original, u.labels))),
+        el("div", {}, el("h4", {}, "当前选择"), el("div", { class: "text" }, rich(compose(u, rejected), u.labels)))),
+        el("div", { class: "actions" }, btn("回到逐条模式", () => { mode = "diff"; draw(); })));
+    } else {
+      body.append(ta, el("p", { class: "hint" }, "⟦…⟧ 是锁定的公式、引用、交叉引用或格式文字，必须原样保留；输入时会自动检查。"),
+        el("div", { class: "actions" }, btn("保存", () => save(ta.value), true), btn("取消", () => { mode = u.decision ? "decision" : "diff"; draw(); })));
+    }
+    body.append(result);
+    body.append(el("details", {}, el("summary", {}, "问题清单 / 修改说明"),
+      u.issues ? el("pre", {}, u.issues) : null, u.changes ? el("pre", {}, u.changes) : null,
+      u.style_changes ? el("pre", {}, u.style_changes) : null));
+  }
+  if (u.findings.length) result.replaceChildren(findingsList(u.findings));
+  draw();
+  return el("div", { class: "card" }, head, body);
+}
+
+// ---------- review run
+function renderReview(v) {
+  const main = $("#main"); main.replaceChildren();
+  const ok = v.items.filter(i => i.passed).length;
+  const out = el("div");
+  let dl = downloads(v);
+  const exp = el("button", { class: "primary", onclick: async () => {
+    const r = await api(`/api/run/${encodeURIComponent(v.name)}/export`, {});
+    out.replaceChildren(findingsList([], `已生成回复信：${r.letter}、${r.docx}（${r.verified}/${r.items} 条已核实）`));
+    view = await api(`/api/run/${encodeURIComponent(v.name)}`); dl.replaceWith(dl = downloads(view)); } }, "生成回复信（.md + .docx）");
+  main.append(el("div", { class: "summary" }, el("h2", {}, v.name),
+    el("div", { class: "kv" }, el("span", {}, "意见 ", el("b", {}, v.items.length)), el("span", {}, "已核实 ", el("b", {}, ok)),
+      el("span", {}, "修改稿中改动的段落 ", el("b", {}, v.changes.length))),
+    el("p", { class: "hint" }, "回复中的 Quote 必须逐字出现在修改稿里；声称“已修改”时至少要有一处引用是新文字。保存时会重新核实。"),
+    el("div", { class: "actions" }, exp), out, dl,
+    el("details", {}, el("summary", {}, "原稿与修改稿的差异"),
+      ...v.changes.map(c => el("pre", {}, `P${c.index} · ${c.section} · ${c.kind}\n` + (c.before ? `前：${c.before}\n` : "") + `后：${c.after}`)))));
+  for (const it of v.items) {
+    const res = el("div");
+    const ta = el("textarea", {}); ta.value = it.response || "Response: \nChange: \nLocation: \nQuote: ";
+    const badge = it.passed ? ["已核实", "ok"] : it.needs_author ? ["需作者确认", "bad"] : ["未通过", "warn"];
+    if (it.findings.length) res.replaceChildren(findingsList(it.findings));
+    main.append(el("div", { class: "card" },
+      el("div", { class: "head" }, el("span", { class: "id" }, it.id), el("span", { class: "badge " + badge[1] }, badge[0]),
+        it.by_author ? el("span", { class: "badge info" }, "作者已编辑") : null),
+      el("div", { class: "body" }, el("blockquote", {}, it.comment), ta,
+        el("div", { class: "actions" }, el("button", { class: "primary", onclick: async () => {
+          const r = await api(`/api/run/${encodeURIComponent(v.name)}/respond`, { item: it.id, text: ta.value });
+          res.replaceChildren(findingsList(r.findings, "核实通过，已保存"));
+          loadRuns(); } }, "核实并保存")), res)));
+  }
+}
+
+// ---------- new run (standalone runner)
+async function showJob(name) {
+  const main = $("#main");
+  const box = el("div", { class: "log" }, "…");
+  main.replaceChildren(el("div", { class: "summary" }, el("h2", {}, name), el("p", { class: "hint" }, "运行日志"), box));
+  const tick = async () => {
+    const { log } = await api(`/api/log/${encodeURIComponent(name)}`);
+    box.textContent = log || "启动中…";
+    if (/FINISHED|FAILED/.test(log)) { loadRuns(/FINISHED/.test(log) ? name : null); return; }
+    if (current === name) setTimeout(tick, 2000);
+  };
+  tick();
+}
+const b64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(",")[1]); r.onerror = no; r.readAsDataURL(f); });
+$("#newBtn").onclick = async () => {
+  $("#modal").classList.add("show"); $("#nLog").style.display = "none";
+  const m = await api("/api/models");
+  const sel = $("#nProfile"); sel.replaceChildren(el("option", { value: "" }, "按“模型设置”中的节点分配"));
+  for (const p of m.profiles) sel.append(el("option", { value: p.name }, `全部使用：${p.label}`));
+  $("#nPlan").textContent = "当前分配：" + Object.entries(m.nodes).map(([n, p]) => `${NODE_NAMES[n]}=${p}`).join("，")
+    + "；规则包：" + (m.active_packs.join("、") || "无");
+};
+$("#nClose").onclick = () => $("#modal").classList.remove("show");
+$("#nKind").onchange = e => { const r = e.target.value === "review"; $("#paperFields").style.display = r ? "none" : ""; $("#reviewFields").style.display = r ? "" : "none"; };
+$("#nGo").onclick = async () => {
+  const log = $("#nLog"); log.style.display = "block";
+  try {
+    const body = { kind: $("#nKind").value, profile: $("#nProfile").value };
+    if (body.kind === "paper") {
+      const f = $("#nFile").files[0]; if (!f) throw new Error("请选择文件");
+      Object.assign(body, { filename: f.name, data: await b64(f), style: $("#nStyle").value, level: $("#nLevel").value });
+    } else {
+      const [c, o, r] = ["#nComments", "#nOrig", "#nRev"].map(s => $(s).files[0]);
+      if (!c || !o || !r) throw new Error("请选择三个文件");
+      Object.assign(body, { filename: "response", comments: await b64(c), comments_name: c.name, original: await b64(o),
+        original_name: o.name, revised: await b64(r), revised_name: r.name, lang: $("#nLang").value });
+    }
+    const { name } = await api("/api/new", body);
+    log.textContent = "已开始：" + name;
+    $("#modal").classList.remove("show");
+    await loadRuns(); open(name, "job");
+  } catch (e) { log.textContent = "无法开始：" + e.message; }
+};
+const NODE_NAMES = { auditor: "审核", rewriter: "改写", "style-calibrator": "风格校准", "claim-checker": "论断检查", responder: "审稿回复" };
+const KEY_NAMES = { env: ["环境变量", "ok"], saved: ["已保存", "ok"], none: ["缺密钥", "bad"], "not-needed": ["无需密钥", "ok"], "sdk-default": ["SDK 默认凭据", "info"] };
+async function renderModels() {
+  const m = await api("/api/models");
+  const body = $("#mBody"); body.replaceChildren();
+  if (!m.anthropic_sdk && m.profiles.some(p => p.type === "anthropic"))
+    body.append(el("p", { class: "hint" }, "提示：未安装 anthropic SDK，Claude 档案暂不可用（pip install anthropic）。其他档案不受影响。"));
+  const opts = sel => m.profiles.map(p => el("option", { value: p.name, ...(p.name === sel ? { selected: "" } : {}) }, p.label));
+  // nodes
+  const nodeSel = {};
+  const nt = el("table", {}, el("tr", {}, el("th", {}, "Agent"), el("th", {}, "使用的模型档案")));
+  for (const [n, label] of Object.entries(NODE_NAMES)) {
+    nodeSel[n] = el("select", {}, opts(m.nodes[n]));
+    nt.append(el("tr", {}, el("td", {}, label), el("td", {}, nodeSel[n])));
+  }
+  // packs
+  const packBox = el("div");
+  for (const p of m.packs) {
+    const cb = el("input", { type: "checkbox", value: p.name, ...(m.active_packs.includes(p.name) ? { checked: "" } : {}) });
+    packBox.append(el("label", { style: "display:block;margin:4px 0" }, cb, ` ${p.name}`, p.version ? ` v${p.version}` : "",
+      el("span", { class: "hint" }, " — " + p.description), p.license ? el("span", { class: "badge" }, "含 LICENSE") : null));
+  }
+  const saveOut = el("div");
+  const save = el("button", { class: "primary", onclick: async () => {
+    const nodes = Object.fromEntries(Object.entries(nodeSel).map(([n, s]) => [n, s.value]));
+    const packs = [...packBox.querySelectorAll("input:checked")].map(c => c.value);
+    try { await api("/api/models", { nodes, packs }); saveOut.replaceChildren(findingsList([], "已保存到 config/models.local.json")); }
+    catch (e) { saveOut.replaceChildren(findingsList([{ level: "error", layer: "设置", message: e.message }])); }
+  } }, "保存分配与规则包");
+  // profiles
+  const pt = el("table", {}, el("tr", {}, el("th", {}, "档案"), el("th", {}, "模型 / 接口"), el("th", {}, "密钥"), el("th", {}, "")));
+  for (const p of m.profiles) {
+    const model = el("input", { type: "text", value: p.model, placeholder: "模型名" });
+    const base = p.type === "openai" ? el("input", { type: "text", value: p.base_url, placeholder: "base_url" }) : null;
+    const key = el("input", { type: "password", placeholder: p.key_env ? `或设置环境变量 ${p.key_env}` : "（可选）", autocomplete: "off" });
+    const out = el("div", { class: "hint" });
+    const [kl, kc] = KEY_NAMES[p.key] || [p.key, ""];
+    pt.append(el("tr", {},
+      el("td", {}, el("b", {}, p.label), el("div", { class: "hint" }, `${p.name} · ${p.type}`)),
+      el("td", {}, model, base),
+      el("td", {}, el("span", { class: "badge " + kc }, kl), key),
+      el("td", {}, el("button", { onclick: async () => {
+          out.textContent = "保存中…";
+          try {
+            const prof = { model: model.value.trim() }; if (base) prof.base_url = base.value.trim();
+            await api("/api/models", { profiles: { [p.name]: prof } });
+            if (key.value.trim()) await api("/api/models/key", { profile: p.name, key: key.value.trim() });
+          } catch (e) { out.textContent = "保存失败：" + e.message; return; }  // never silently swallow
+          key.value = ""; out.textContent = "测试中…";
+          try {
+            const r = await api("/api/models/test", { profile: p.name });
+            out.textContent = r.ok ? `连接正常 · ${r.ms} ms · 回复“${r.reply}”` : "失败：" + r.error;
+            if (r.ok) renderModels();
+          } catch (e) { out.textContent = "测试失败：" + e.message; }
+        } }, "保存并测试"), out)));
+  }
+  // add profile
+  const nName = el("input", { type: "text", placeholder: "档案名，如 siliconflow" });
+  const nBase = el("input", { type: "text", placeholder: "https://…/v1" });
+  const nModel = el("input", { type: "text", placeholder: "模型名" });
+  const nEnv = el("input", { type: "text", placeholder: "密钥环境变量名（本地模型留空）" });
+  const addOut = el("div");
+  const add = el("button", { onclick: async () => {
+    try { await api("/api/models", { profiles: { [nName.value.trim()]: { type: "openai", base_url: nBase.value.trim(), model: nModel.value.trim(), key_env: nEnv.value.trim(), label: nName.value.trim() } } }); renderModels(); }
+    catch (e) { addOut.replaceChildren(findingsList([{ level: "error", layer: "添加", message: e.message }])); }
+  } }, "添加 OpenAI 兼容档案");
+  body.append(el("h4", {}, "各 Agent 使用的模型"), nt, el("h4", {}, "规则包"), packBox,
+    el("div", { class: "actions" }, save), saveOut,
+    el("h4", {}, "模型档案"), pt,
+    el("h4", {}, "添加其他服务商或本地模型"),
+    el("table", {}, el("tr", {}, el("td", {}, nName), el("td", {}, nBase), el("td", {}, nModel), el("td", {}, nEnv))),
+    el("div", { class: "actions" }, add), addOut);
+}
+$("#modelsBtn").onclick = () => { $("#mModal").classList.add("show"); renderModels(); };
+$("#mClose").onclick = () => $("#mModal").classList.remove("show");
+loadRuns();
+</script>
+</body>
+</html>

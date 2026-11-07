@@ -1,0 +1,59 @@
+# Domain glossary — thermal science (boiling, nucleation, wetting, MD).
+# preferred: the form to use; abbr: optional abbreviation (case-sensitive);
+# variants: discouraged alternatives (flagged when a revision introduces them).
+# Edit freely: add your group's conventions here.
+
+[[term]]
+preferred = "onset of nucleate boiling"
+abbr = "ONB"
+variants = ["nucleate boiling onset", "onset of nucleation boiling", "boiling incipience point"]
+
+[[term]]
+preferred = "critical heat flux"
+abbr = "CHF"
+variants = ["critical heat-flux", "burnout heat flux", "peak heat flux"]
+
+[[term]]
+preferred = "heat transfer coefficient"
+abbr = "HTC"
+variants = ["heat-transfer coefficient", "heat exchange coefficient"]
+
+[[term]]
+preferred = "contact angle"
+variants = ["wetting angle", "wettability angle"]
+
+[[term]]
+preferred = "nucleation waiting time"
+variants = ["waiting period of nucleation", "bubble waiting period"]
+
+[[term]]
+preferred = "interfacial thermal resistance"
+abbr = "ITR"
+variants = ["Kapitza resistance", "thermal boundary resistance", "interface thermal resistance"]
+
+[[term]]
+preferred = "molecular dynamics"
+abbr = "MD"
+variants = ["molecular-dynamics", "molecule dynamics"]
+
+[[term]]
+preferred = "classical nucleation theory"
+abbr = "CNT"
+variants = ["classic nucleation theory", "traditional nucleation theory"]
+
+[[term]]
+preferred = "wall superheat"
+variants = ["superheat of the wall", "wall overheat"]
+
+[[term]]
+preferred = "flow boiling"
+variants = ["forced convective boiling", "convective flow boiling"]
+
+[[term]]
+preferred = "microchannel"
+variants = ["micro-channel", "micro channel"]
+
+[[term]]
+preferred = "Reynolds number"
+abbr = "Re"
+variants = ["Reynold number", "Reynolds' number"]

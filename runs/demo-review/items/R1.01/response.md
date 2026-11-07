@@ -1,0 +1,6 @@
+Response: We agree and have revised the wording in the Results and discussion. "Clearly demonstrate" is replaced by a plain statement of the onset times at 300 K followed by "indicates", and "proves" is replaced by "consistent with", restricted explicitly to the range of contact angles we studied. We also hedged the classical-nucleation-theory interpretation ("may be attributed") and the design implication, which is now limited to the conditions studied here. The data set itself is unchanged: the results still cover three contact angles and one wall temperature, and the revised text is scoped to that range rather than extended with new simulations.
+Change: Overstated claims ("clearly demonstrate", "proves", "innovative finding", "paves the way") replaced with hedged statements scoped to the three contact angles and the 300 K wall temperature.
+Location: Results and discussion
+Quote: This indicates that a smaller contact angle accelerates nucleation.
+Quote: These results are consistent with the onset time varying monotonically with the contact angle over the range we studied.
+Quote: Under the conditions studied here, wettability could be considered in the design of cooling surfaces for electronic devices.

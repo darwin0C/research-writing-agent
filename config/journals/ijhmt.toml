@@ -1,0 +1,22 @@
+# Journal style profile. Values marked "verify" should be checked against the
+# journal's current Guide for Authors before relying on them.
+key = "ijhmt"
+name = "International Journal of Heat and Mass Transfer"
+spelling = "consistent"   # "US", "UK", or "consistent" (either, but never mixed) — verify
+first_person = true       # "we" acceptable in methods/results
+figure_ref = ""         # "Fig." or "Figure" — house style overrides the author's habit; empty = follow the author (verify)
+abstract_max_words = 0    # 0 = not enforced; set from the Guide for Authors (verify)
+
+tense = """
+Methods and observations: past tense ("simulations were performed", "the onset time decreased").
+Established knowledge and what figures/tables show: present tense ("Fig. 3 shows").
+"""
+
+style = """
+Lead with the physical quantity and the condition: "At a wall superheat of 15 K, the HTC increased by 32%".
+Report changes with numbers, not adjectives. Keep mechanisms hedged unless directly measured.
+Define every abbreviation at first use in the abstract and again in the main text.
+Prefer SI units with a space between number and unit (\\SI{} where the source uses siunitx).
+"""
+
+extra_phrases = ["it is found that", "it can be seen that", "it is clear that", "obviously"]

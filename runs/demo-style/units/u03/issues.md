@@ -1,0 +1,8 @@
+# Issues · u03
+| # | Sentence (≤12 words, quoted) | Type | Why | Direction |
+|---|---|---|---|---|
+| 1 | "Our results clearly demonstrate that the hydrophilic surface significantly accelerates nucleation" | overclaim | "Clearly demonstrate" and "significantly" with no statistics (no replicate runs, error bars or uncertainty on onset times are given). | Remove "clearly"; replace "significantly" with the reported magnitude (e.g., onset time reduced by ~64%); add the number of independent runs and the uncertainty if available. |
+| 2 | "the hydrophilic surface significantly accelerates nucleation" | terminology | "The hydrophilic surface" is ambiguous when two surfaces (35° and 70°) are below 90°; elsewhere surfaces are named by contact angle. | Refer to surfaces consistently by contact angle (e.g., "the 35° surface"). |
+| 3 | "the onset time decreases from 350 ps on the 110" | underspecified | The fluid, wall heat flux/superheat and system size are not stated, and "near the wall" (the region for vapor fraction) is undefined; the onset-time criterion is also not given. | State the fluid, how onset time is defined (vapor-fraction threshold), and the width of the near-wall region, or point to the Methods section where they are defined. |
+| 4 | "Interestingly, the 70" | ai-template | "Interestingly" is a filler sentence opener that adds no content. | Delete it and report the 70° result directly. |
+| 5 | "which proves that the onset time varies monotonically with" | overclaim | Three contact angles cannot prove a monotonic dependence; they are only consistent with one. | Use "consistent with a monotonic increase of onset time with contact angle over 35°–110°" and give the range it applies to. |

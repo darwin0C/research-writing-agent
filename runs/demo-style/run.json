@@ -1,0 +1,201 @@
+{
+  "name": "demo-style",
+  "source": "examples/section.tex",
+  "journal": "International Journal of Heat and Mass Transfer",
+  "level": "medium",
+  "style": "ijhmt",
+  "bib": null,
+  "glossary": "default",
+  "style_corpus": "style_corpus",
+  "section_type": "results",
+  "max_style_attempts": 2,
+  "created": "2026-11-07 17:31:15",
+  "max_attempts": 3,
+  "units": [
+    {
+      "id": "u01",
+      "kind": "frozen",
+      "words": 0,
+      "sep": "\n\n",
+      "attempts": 0,
+      "last_hash": null,
+      "last_passed": null,
+      "reverted": false,
+      "gates": [],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": []
+    },
+    {
+      "id": "u02",
+      "kind": "prose",
+      "words": 59,
+      "sep": "\n\n",
+      "attempts": 1,
+      "last_hash": "4929dfddc77b23cd",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "4929dfddc77b23cd",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:31:15"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 2,
+      "style_hash": "6c0fc85320aa4a89",
+      "style_passed": true,
+      "style_done": true,
+      "style_gates": [
+        {
+          "attempt": 1,
+          "hash": "dc8777026abf5e5c",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:32:07"
+        },
+        {
+          "attempt": 2,
+          "hash": "6c0fc85320aa4a89",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:33:13"
+        }
+      ]
+    },
+    {
+      "id": "u03",
+      "kind": "prose",
+      "words": 68,
+      "sep": "\n\n",
+      "attempts": 1,
+      "last_hash": "063b35ec1e054d89",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "063b35ec1e054d89",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:31:15"
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 1,
+      "style_hash": "18ac7350a19288ae",
+      "style_passed": true,
+      "style_done": true,
+      "style_gates": [
+        {
+          "attempt": 1,
+          "hash": "18ac7350a19288ae",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:32:17"
+        }
+      ]
+    },
+    {
+      "id": "u04",
+      "kind": "frozen",
+      "words": 0,
+      "sep": "\n\n",
+      "attempts": 0,
+      "last_hash": null,
+      "last_passed": null,
+      "reverted": false,
+      "gates": [],
+      "reopened": 0,
+      "style_attempts": 0,
+      "style_hash": null,
+      "style_passed": null,
+      "style_done": false,
+      "style_gates": []
+    },
+    {
+      "id": "u05",
+      "kind": "prose",
+      "words": 62,
+      "sep": "",
+      "attempts": 1,
+      "last_hash": "9402851bb5ed8f54",
+      "last_passed": true,
+      "reverted": false,
+      "gates": [
+        {
+          "attempt": 1,
+          "hash": "9402851bb5ed8f54",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:31:47",
+          "recheck": true
+        }
+      ],
+      "reopened": 0,
+      "style_attempts": 1,
+      "style_hash": "6f3f6ab8bfe7787e",
+      "style_passed": true,
+      "style_done": true,
+      "style_gates": [
+        {
+          "attempt": 1,
+          "hash": "6f3f6ab8bfe7787e",
+          "passed": true,
+          "findings": [],
+          "time": "2026-11-07 17:32:11"
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    "2026-11-07 17:31:47 u05: re-checked with updated checker — pass"
+  ],
+  "final": {
+    "passed": true,
+    "partial": false,
+    "open_units": [],
+    "findings": [],
+    "time": "2026-11-07 17:34:33",
+    "audit_before": {
+      "words": 192,
+      "ai_phrases": 9,
+      "ai_phrases_per_1000_words": 46.9,
+      "strong_claims": 4
+    },
+    "audit_after": {
+      "words": 178,
+      "ai_phrases": 0,
+      "ai_phrases_per_1000_words": 0.0,
+      "strong_claims": 0
+    },
+    "style": {
+      "section_before": 2.39,
+      "section_after": 1.9,
+      "units": {
+        "u02": {
+          "original": 1.45,
+          "rewrite": 1.07,
+          "styled": 0.86
+        },
+        "u03": {
+          "original": 1.95,
+          "rewrite": 2.03,
+          "styled": 1.22
+        },
+        "u05": {
+          "original": 1.71,
+          "rewrite": 1.79,
+          "styled": 1.7
+        }
+      },
+      "section_type": "results"
+    }
+  }
+}

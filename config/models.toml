@@ -1,0 +1,75 @@
+# Model profiles for the standalone runner and the review app.
+#
+# type = "anthropic"  → Claude via the official SDK (pip install anthropic)
+# type = "openai"     → any OpenAI-compatible Chat Completions endpoint (no extra package)
+#
+# API keys are never stored here. Each profile names an environment variable (key_env);
+# the review app can also save a key to ~/.config/research-writing-agent/keys.json (mode 600).
+# Model names for non-Claude services change often: check the provider's docs ("verify").
+# Edits made in the review app go to config/models.local.json, which overrides this file.
+
+[profiles.claude-opus]
+type = "anthropic"
+model = "claude-opus-5-5"
+effort = "high"
+label = "Claude Opus 5.5"
+
+[profiles.claude-sonnet]
+type = "anthropic"
+model = "claude-sonnet-5-5"
+effort = "high"
+label = "Claude Sonnet 5.5"
+
+[profiles.deepseek]
+type = "openai"
+base_url = "https://api.deepseek.com/v1"
+model = "deepseek-chat"                 # verify
+key_env = "DEEPSEEK_API_KEY"
+label = "DeepSeek"
+
+[profiles.qwen]
+type = "openai"
+base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+model = "qwen-plus"                     # verify
+key_env = "DASHSCOPE_API_KEY"
+label = "通义千问（DashScope）"
+
+[profiles.kimi]
+type = "openai"
+base_url = "https://api.moonshot.cn/v1"
+model = ""                              # fill in from Moonshot's docs
+key_env = "MOONSHOT_API_KEY"
+label = "Kimi（Moonshot）"
+
+[profiles.glm]
+type = "openai"
+base_url = "https://open.bigmodel.cn/api/paas/v4"
+model = ""                              # fill in from Zhipu's docs
+key_env = "ZHIPUAI_API_KEY"
+label = "智谱 GLM"
+
+[profiles.openai]
+type = "openai"
+base_url = "https://api.openai.com/v1"
+model = ""                              # fill in
+key_env = "OPENAI_API_KEY"
+label = "OpenAI"
+
+[profiles.ollama]
+type = "openai"
+base_url = "http://localhost:11434/v1"
+model = "qwen2.5:14b"                   # any model you have pulled
+key_env = ""                            # local: no key
+label = "本地 Ollama"
+
+# Which profile each agent uses. "default" covers any node not listed.
+[nodes]
+default = "claude-opus"
+# auditor = "claude-opus"
+# rewriter = "deepseek"
+# style-calibrator = "claude-sonnet"
+# claim-checker = "claude-opus"
+# responder = "claude-opus"
+
+[rules]
+packs = ["academic-humanizer"]

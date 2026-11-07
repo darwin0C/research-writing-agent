@@ -1,0 +1,17 @@
+key = "ate"
+name = "Applied Thermal Engineering"
+spelling = "consistent"   # verify
+first_person = true
+figure_ref = ""         # "Fig." or "Figure" — house style overrides the author's habit; empty = follow the author (verify)
+abstract_max_words = 0    # verify
+
+tense = """
+Past tense for what was done and observed; present tense for figures and established facts.
+"""
+
+style = """
+Engineering emphasis: state the operating condition and the practical consequence of each result.
+Keep application claims tied to the tested range; move broader implications to the conclusions.
+"""
+
+extra_phrases = ["it is found that", "it can be seen that", "it is clear that", "obviously"]

@@ -1,0 +1,12 @@
+| # | Before | After | Reason (issue #) |
+|---|---|---|---|
+| 1 | "The trend can be interpreted using classical nucleation theory" | "The increase in nucleation onset time with contact angle can be interpreted using classical nucleation theory" | Names the trend from the previous paragraph (1) |
+| 2 | "where the energy barrier ⟦MATH1⟧ decreases on more hydrophilic surfaces due to the enhanced solid--liquid interaction ⟦CITE1⟧" | Split into a new sentence: "Within this framework, the trend may be attributed to a lower energy barrier ⟦MATH1⟧ on more hydrophilic surfaces, resulting from the enhanced solid--liquid interaction ⟦CITE1⟧." | Asserted mechanism hedged to an interpretation; one idea per sentence (2) |
+| 3 | "This innovative finding sheds light on the intricate interplay between interfacial wettability and phase change" | "This result suggests that interfacial wettability affects the onset of phase change" | Removed template phrases and self-praise; concrete statement (3, 4) |
+| 4 | "and paves the way for the rational design of high-performance cooling surfaces for next-generation electronic devices" | "and that, under the conditions studied here, wettability could be considered in the design of cooling surfaces for electronic devices" | Removed template phrase; hedged and scoped the design implication; dropped "high-performance", "next-generation" (5) |
+
+- **Claims:** S2 weakened from asserted "decreases … due to" to "may be attributed to" (mechanism not shown in this paragraph). S3 now "suggests" (was implicit assertion via "sheds light on"). Design implication weakened from "paves the way for the rational design of high-performance …" to "could be considered", scoped to "the conditions studied here".
+- **Warnings:** none.
+- **For the author:** (a) Issue 2: standard heterogeneous CNT predicts a *lower* barrier on more hydrophobic walls; the paragraph claims the opposite. I did not add an explanation (e.g., enhanced heat transfer from stronger solid–liquid coupling) because it would be a new mechanism — please add it with support (data or a citation beyond ⟦CITE1⟧ if carey2018 does not cover it), or reconsider the interpretation. (b) Consider stating the studied conditions explicitly (wall temperature 300 K, three contact angles) in place of "the conditions studied here", or moving the design implication to the Conclusions. (c) Check that "nucleation onset time increasing with contact angle" correctly names the trend from the preceding paragraph.
+
+u05: PASSED after 1 attempt(s)

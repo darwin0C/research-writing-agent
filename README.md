@@ -203,3 +203,11 @@ python3 -m unittest discover -s tests -t .
 - 方向和适用范围检查基于词表和正则，遇到不常见的表达可能漏检；反义替换只给提醒，不拦截。
 - 段落按空行切分；一段里跨段移动内容会被整节校验拦下，但不会自动定位到哪一段。
 - 套话词表 `config/ai_phrases.txt` 是通用版，需要按自己领域和期刊增删。
+
+## 许可证
+
+本项目代码采用 [MIT 许可证](LICENSE)。
+
+[rules/academic-humanizer/](rules/academic-humanizer/) 中收录的 Academic Humanizer 规则保留原作者的 MIT 许可（Copyright (c) 2026 AIScientists-Dev，基于 blader/humanizer），详见该目录下的 `LICENSE` 和 `NOTICE.md`。
+
+使用 AI 辅助写作时，请按期刊或资助机构的要求如实披露。

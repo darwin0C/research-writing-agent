@@ -1,5 +1,7 @@
 # research-writing-agent
 
+基于 Academic Humanizer 搭建本地科研写作 Agent。
+
 科研论文写作助手。当前进度：M5（路线图全部完成）：整节多 Agent 流水线、分层校验引擎、术语表、期刊配置、埋错基准集、个人风格库，Word、审稿回复、基金申请书（含中文）三类文档，以及不依赖 Claude Code 的独立运行器和浏览器审阅应用。完整方案见 [PLAN.md](PLAN.md)。
 
 ## 用法（Claude Code）

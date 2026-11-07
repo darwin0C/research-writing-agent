@@ -72,7 +72,7 @@ Academic Humanizer 是 AIScientists-Dev 在 GitHub 上开源的一个 Agent Skil
 **第 1 步，获取代码，建立虚拟环境：**
 
 ```bash
-git clone <项目仓库地址> research-writing-agent
+git clone https://github.com/darwin0C/research-writing-agent.git
 cd research-writing-agent
 python3 -m venv .venv
 .venv/bin/pip install anthropic
@@ -196,4 +196,4 @@ ollama serve
 
 AI 可以把论文写得更清楚。数字、引用和结论的强度，则交给程序和你本人把关。
 
-项目地址：<项目仓库地址>
+项目地址：https://github.com/darwin0C/research-writing-agent
